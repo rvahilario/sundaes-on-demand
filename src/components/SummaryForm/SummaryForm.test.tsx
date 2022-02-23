@@ -41,7 +41,7 @@ describe('<SummaryForm />', () => {
 		expect(confirmButton).toBeEnabled();
 
 		fireEvent.click(checkbox);
-		expect(checkbox).not.toBeEnabled();
+		expect(checkbox).not.toBeChecked();
 		expect(confirmButton).toBeDisabled();
 	});
 });
