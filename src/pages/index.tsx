@@ -1,4 +1,6 @@
+import { SummaryForm } from '@/components/SummaryForm';
 import Head from 'next/head';
+import 'bootstrap/dist/css/bootstrap.min.css';
 // import styles from '@/styles/';
 
 export default function Home() {
@@ -7,8 +9,7 @@ export default function Home() {
 			<Head>
 				<title>'TypeScript starter for Next.js'</title>
 			</Head>
-
-			<h1>~ Hello World ~</h1>
+			<SummaryForm />
 		</>
 	);
 }
