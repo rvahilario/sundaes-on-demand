@@ -4,13 +4,17 @@ import { ThemeProvider } from 'styled-components';
 import theme from '../../styles/theme';
 import { SummaryForm } from './SummaryForm';
 
+const renderSummaryForm = () => {
+	render(
+		<ThemeProvider theme={theme}>
+			<SummaryForm />
+		</ThemeProvider>,
+	);
+};
+
 describe('<SummaryForm />', () => {
 	it('checkbox should starts unchecked by default and button disabled', () => {
-		render(
-			<ThemeProvider theme={theme}>
-				<SummaryForm />
-			</ThemeProvider>,
-		);
+		renderSummaryForm();
 
 		const checkbox = screen.getByRole('checkbox', {
 			name: /i agree to terms and conditions/i,
@@ -24,11 +28,7 @@ describe('<SummaryForm />', () => {
 	});
 
 	it('checking checkbox enables button and unchecking disables button', () => {
-		render(
-			<ThemeProvider theme={theme}>
-				<SummaryForm />
-			</ThemeProvider>,
-		);
+		renderSummaryForm();
 
 		const checkbox = screen.getByRole('checkbox', {
 			name: /i agree to terms and conditions/i,
