@@ -1,4 +1,5 @@
-import { fireEvent, render, screen } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
+import userEvents from '@testing-library/user-event';
 import { ThemeProvider } from 'styled-components';
 import theme from '../../styles/theme';
 import { SummaryForm } from './SummaryForm';
@@ -36,11 +37,11 @@ describe('<SummaryForm />', () => {
 			name: /confirm order/i,
 		});
 
-		fireEvent.click(checkbox);
+		userEvents.click(checkbox);
 		expect(checkbox).toBeChecked();
 		expect(confirmButton).toBeEnabled();
 
-		fireEvent.click(checkbox);
+		userEvents.click(checkbox);
 		expect(checkbox).not.toBeChecked();
 		expect(confirmButton).toBeDisabled();
 	});
