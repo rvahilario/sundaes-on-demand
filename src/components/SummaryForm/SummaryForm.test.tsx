@@ -1,4 +1,9 @@
-import { render, screen } from '@testing-library/react';
+import {
+	render,
+	screen,
+	waitForElementToBeRemoved,
+} from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import userEvents from '@testing-library/user-event';
 import { ThemeProvider } from 'styled-components';
 import theme from '../../styles/theme';
@@ -44,5 +49,22 @@ describe('<SummaryForm />', () => {
 		userEvents.click(checkbox);
 		expect(checkbox).not.toBeChecked();
 		expect(confirmButton).toBeDisabled();
+	});
+
+	it('popover responds to hover', async () => {
+		renderSummaryForm();
+
+		const popoverText = /no ice cream will actually be delivered/i;
+
+		const nullPopover = screen.queryByText(popoverText);
+		expect(nullPopover).toBeNull;
+
+		const termsAndConditions = screen.getByText(/terms and conditions/i);
+		userEvent.hover(termsAndConditions);
+		const popover = screen.getByText(popoverText);
+		expect(popover).toBeInTheDocument();
+
+		userEvent.unhover(termsAndConditions);
+		await waitForElementToBeRemoved(() => screen.queryByText(popoverText));
 	});
 });
