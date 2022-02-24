@@ -1,5 +1,5 @@
 // eslint-disable-next-line import/extensions
-import { server } from './mocks/server.js';
+import { server } from './src/mocks/server';
 // Establish API mocking before all tests.
 beforeAll(() => server.listen());
 
