@@ -1,14 +1,13 @@
 import { render, screen } from '@testing-library/react';
-import { ThemeProvider } from 'styled-components';
-import theme from '../../styles/theme';
+import Theme from '../../styles/theme';
 import { {{pascalCase name}} } from './{{pascalCase name}}';
 
 describe('<{{pascalCase name}} />', () => {
 	it('should render {{pascalCase name}}', () => {
 		render(
-			<ThemeProvider theme={theme}>
+			<Theme>
 				<{{pascalCase name}} />
-			</ThemeProvider>,
+			</Theme>,
 		);
 
 		const {{camelCase name}} = screen.getByText('{{pascalCase name}}');
