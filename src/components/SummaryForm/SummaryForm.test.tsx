@@ -5,15 +5,14 @@ import {
 } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import userEvents from '@testing-library/user-event';
-import { ThemeProvider } from 'styled-components';
-import theme from '../../styles/theme';
+import Theme from '../../styles/theme';
 import { SummaryForm } from './SummaryForm';
 
 const renderSummaryForm = () => {
 	render(
-		<ThemeProvider theme={theme}>
+		<Theme>
 			<SummaryForm />
-		</ThemeProvider>,
+		</Theme>,
 	);
 };
 
