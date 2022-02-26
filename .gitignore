@@ -36,3 +36,6 @@ yarn-error.log*
 
 # vercel
 .vercel
+
+# Plugin Explorer Exclude (https://marketplace.visualstudio.com/items?itemName=RedVanWorkshop.explorer-exclude-vscode-extension)
+.vscode
