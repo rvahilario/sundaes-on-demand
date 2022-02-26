@@ -5,7 +5,7 @@ import {
 } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import userEvents from '@testing-library/user-event';
-import Theme from '../../styles/theme';
+import Theme from '@/styles/theme';
 import { SummaryForm } from './SummaryForm';
 
 const renderSummaryForm = () => {
