@@ -5,5 +5,5 @@ module.exports = {
 	testEnvironment: 'jsdom',
 	// testMatch: ['**/__tests__/**/?(*.)+(spec|test).[tj]s?(x)'],
 	testPathIgnorePatterns: ['/node_modules', '/.next/'],
-		'@/(.*)': '<rootDir>/src/$1',
+	moduleNameMapper: { '@/(.*)': '<rootDir>/src/$1' },
 };
