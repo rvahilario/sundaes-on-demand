@@ -3,6 +3,8 @@ import { useEffect, useState } from 'react';
 
 import { Container } from './styles';
 import { OptionsProps } from './types';
+import { ScoopOption, ScoopOptionProps } from '@/components/ScoopOption';
+
 export const Options = ({ optionType }: OptionsProps) => {
 	const [items, setItems] = useState([]);
 
@@ -15,5 +17,18 @@ export const Options = ({ optionType }: OptionsProps) => {
 			});
 	}, [optionType]);
 
-	return <Container />;
+	// TODO: replace null by topping option
+	const ItemComponent = (
+		optionType === 'scoops' ? ScoopOption : null
+	) as React.ElementType;
+
+	const optionItems = items.map((item: ScoopOptionProps) => (
+		<ItemComponent
+			key={item.name}
+			name={item.name}
+			imagePath={item.imagePath}
+		/>
+	));
+
+	return <Container>{optionItems}</Container>;
 };
