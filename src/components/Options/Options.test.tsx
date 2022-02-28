@@ -33,7 +33,7 @@ describe('<Options optionType="toppings" />', () => {
 		renderOptions({ optionType: 'toppings' });
 
 		const toppingsImage = await screen.findAllByRole('img', {
-			name: /toppings$/i,
+			name: /topping$/i,
 		});
 		expect(toppingsImage).toHaveLength(3);
 
