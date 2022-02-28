@@ -26,3 +26,24 @@ describe('<Options optionType="scoops" />', () => {
 		expect(altText).toEqual(['Chocolate scoop', 'Vanilla scoop']);
 	});
 });
+
+describe('<Options optionType="toppings" />', () => {
+	it('displays image for each topping option from server', async () => {
+		renderOptions('toppings');
+
+		const toppingsImage = await screen.findAllByRole('img', {
+			name: /toppings$/i,
+		});
+		expect(toppingsImage).toHaveLength(3);
+
+		const altText = toppingsImage.map((element) => {
+			const imageElement = element as HTMLImageElement;
+			return imageElement.alt;
+		});
+		expect(altText).toEqual([
+			'Cherries topping',
+			'M&Ms topping',
+			'Hot fudge topping',
+		]);
+	});
+});
