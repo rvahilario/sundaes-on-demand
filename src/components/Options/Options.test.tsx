@@ -1,18 +1,19 @@
 import { render, screen } from '@testing-library/react';
 import Theme from '../../styles/theme';
 import { Options } from './Options';
+import { OptionsProps } from '@/components/Options/types';
 
-const renderOptions = (type: string) => {
+const renderOptions = ({ optionType }: OptionsProps) => {
 	render(
 		<Theme>
-			<Options optionType={type} />
+			<Options optionType={optionType} />
 		</Theme>,
 	);
 };
 
 describe('<Options optionType="scoops" />', () => {
 	it('displays image for each scoop option from server', async () => {
-		renderOptions('scoops');
+		renderOptions({ optionType: 'scoops' });
 
 		//find images
 		const scoopImages = await screen.findAllByRole('img', { name: /scoop$/i });
@@ -29,7 +30,7 @@ describe('<Options optionType="scoops" />', () => {
 
 describe('<Options optionType="toppings" />', () => {
 	it('displays image for each topping option from server', async () => {
-		renderOptions('toppings');
+		renderOptions({ optionType: 'toppings' });
 
 		const toppingsImage = await screen.findAllByRole('img', {
 			name: /toppings$/i,
