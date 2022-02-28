@@ -1,3 +1,3 @@
 export interface OptionsProps {
-	optionType: string;
+	optionType: 'scoops' | 'toppings';
 }
