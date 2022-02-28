@@ -2,17 +2,17 @@ import { render, screen } from '@testing-library/react';
 import Theme from '../../styles/theme';
 import { Options } from './Options';
 
-const renderOptions = () => {
+const renderOptions = (type: string) => {
 	render(
 		<Theme>
-			<Options optionType="scoops" />
+			<Options optionType={type} />
 		</Theme>,
 	);
 };
 
 describe('<Options optionType="scoops" />', () => {
 	it('displays image for each scoop option from server', async () => {
-		renderOptions();
+		renderOptions('scoops');
 
 		//find images
 		const scoopImages = await screen.findAllByRole('img', { name: /scoop$/i });
