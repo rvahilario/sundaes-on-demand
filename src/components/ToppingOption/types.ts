@@ -1,1 +1,4 @@
-export interface ToppingOptionProps {}
+export interface ToppingOptionProps {
+	name: string;
+	imagePath: string;
+}
