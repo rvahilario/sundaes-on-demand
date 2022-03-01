@@ -2,16 +2,22 @@ import { render, screen } from '@testing-library/react';
 import Theme from '../../styles/theme';
 import { OrderEntry } from './OrderEntry';
 
+const renderOrderEntry = () => {
+	render(
+		<Theme>
+			<OrderEntry />
+		</Theme>,
+	);
+};
+
 describe('<OrderEntry />', () => {
-	it('should render OrderEntry', () => {
-		render(
-			<Theme>
-				<OrderEntry />
-			</Theme>,
-		);
+	it('Handles error for scoops and toppings routes', async () => {
+		renderOrderEntry();
 
-		const orderEntry = screen.getByText('OrderEntry');
+		const alerts = await screen.findAllByRole('alert', {
+			name: 'An expected error ocurred. Please try again later.',
+		});
 
-		expect(orderEntry).toBeInTheDocument();
+		expect(alerts).toHaveLength(2);
 	});
 });
