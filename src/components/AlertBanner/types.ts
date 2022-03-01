@@ -1,1 +1,4 @@
-export interface AlertBannerProps {}
+export interface AlertBannerProps {
+	message?: string;
+	variant?: string;
+}

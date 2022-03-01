@@ -1,10 +1,15 @@
 import { Container } from './styles';
 import { AlertBannerProps } from './types';
+import Alert from 'react-bootstrap/Alert';
 
-export const AlertBanner = ({}: AlertBannerProps) => {
+export const AlertBanner = ({ message, variant }: AlertBannerProps) => {
+	const alertMessage =
+		message || 'An unexpected error ocurred. Please try again later.';
+	const alertVariant = variant || 'danger';
+
 	return (
 		<Container>
-			<h1>AlertBanner</h1>
+			<Alert variant={alertVariant}>{alertMessage}</Alert>
 		</Container>
 	);
 };
