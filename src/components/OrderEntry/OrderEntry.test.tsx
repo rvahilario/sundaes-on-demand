@@ -26,7 +26,7 @@ describe('<OrderEntry />', () => {
 		renderOrderEntry();
 
 		const alerts = await screen.findAllByRole('alert', {
-			name: 'An expected error ocurred. Please try again later.',
+			name: 'An unexpected error ocurred. Please try again later.',
 		});
 
 		expect(alerts).toHaveLength(2);
