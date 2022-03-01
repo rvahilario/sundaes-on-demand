@@ -1,10 +1,12 @@
 import { Container } from './styles';
 import { OrderEntryProps } from './types';
+import { Options } from '@/components/Options';
 
 export const OrderEntry = ({}: OrderEntryProps) => {
 	return (
 		<Container>
-			<h1>OrderEntry</h1>
+			<Options optionType="scoops" />
+			<Options optionType="toppings" />
 		</Container>
 	);
 };
