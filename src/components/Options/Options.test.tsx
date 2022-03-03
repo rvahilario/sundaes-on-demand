@@ -2,6 +2,7 @@ import { render, screen } from '@testing-library/react';
 import Theme from '../../styles/theme';
 import { Options } from './Options';
 import { OptionsProps } from '@/components/Options/types';
+import userEvent from '@testing-library/user-event';
 
 const renderOptions = ({ optionType }: OptionsProps) => {
 	render(
@@ -46,5 +47,35 @@ describe('<Options optionType="toppings" />', () => {
 			'M&Ms topping',
 			'Hot fudge topping',
 		]);
+	});
+});
+
+describe('Testing Subtotals', () => {
+	test('Update scoops subtotal when scoops change', async () => {
+		renderOptions({ optionType: 'scoops' });
+
+		const scoopsSubtotal = screen.getByText('Scoops total: $', {
+			exact: false,
+		});
+		// make sure total starts out $0.00
+		expect(scoopsSubtotal).toHaveTextContent('$0.00');
+
+		// update vanilla scoops to 1 and check subtotal
+		const vanillaInput = await screen.findByRole('spinbutton', {
+			name: /vanilla/i,
+		});
+
+		userEvent.clear(vanillaInput);
+		userEvent.type(vanillaInput, '1');
+		expect(scoopsSubtotal).toHaveTextContent('$2.00');
+
+		// update chocalate scoops to 2 and check subtotal
+		const chocolateInput = await screen.findByRole('spinbutton', {
+			name: /chocolate/i,
+		});
+
+		userEvent.clear(chocolateInput);
+		userEvent.type(chocolateInput, '2');
+		expect(scoopsSubtotal).toHaveTextContent('$6.00');
 	});
 });
