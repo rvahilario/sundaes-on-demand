@@ -1,6 +1,14 @@
 import { createContext, useContext, useState, useEffect, useMemo } from 'react';
 import { pricePerItem } from '@/constants';
 
+function formatCurrency(amount: number) {
+	return Intl.NumberFormat('en-US', {
+		style: 'currency',
+		currency: 'USD',
+		minimumFractionDigits: 2,
+	}).format(amount);
+}
+
 const OrderDetails = createContext('');
 
 // create custom hook to check whether we're inside a provider
@@ -33,11 +41,11 @@ export function OrderDetailsProvider(props: any) {
 		scoops: new Map(),
 		toppings: new Map(),
 	});
-
+	const zeroCurrency = formatCurrency(0);
 	const [totals, setTotals] = useState({
-		scoops: 0,
-		toppings: 0,
-		grandTotal: 0,
+		scoops: zeroCurrency,
+		toppings: zeroCurrency,
+		grandTotal: zeroCurrency,
 	});
 
 	useEffect(() => {
@@ -46,9 +54,9 @@ export function OrderDetailsProvider(props: any) {
 		const grandTotal = scoopsSubtotal + toppingsSubtotal;
 
 		setTotals({
-			scoops: scoopsSubtotal,
-			toppings: toppingsSubtotal,
-			grandTotal: grandTotal,
+			scoops: formatCurrency(scoopsSubtotal),
+			toppings: formatCurrency(toppingsSubtotal),
+			grandTotal: formatCurrency(grandTotal),
 		});
 	}, [optionCounts]);
 
