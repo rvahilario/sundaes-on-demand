@@ -1,15 +1,10 @@
-import { render, screen } from '@testing-library/react';
-import Theme from '../../styles/theme';
+import { render, screen } from '@/test-utils/testing-library-utils';
 import { Options } from './Options';
 import { OptionsProps } from '@/components/Options/types';
 import userEvent from '@testing-library/user-event';
 
 const renderOptions = ({ optionType }: OptionsProps) => {
-	render(
-		<Theme>
-			<Options optionType={optionType} />
-		</Theme>,
-	);
+	render(<Options optionType={optionType} />);
 };
 
 describe('<Options optionType="scoops" />', () => {

@@ -1,16 +1,9 @@
-import { render, screen, waitFor } from '@testing-library/react';
-import Theme from '../../styles/theme';
+import { render, screen, waitFor } from '@/test-utils/testing-library-utils';
 import { OrderEntry } from './OrderEntry';
 import { rest } from 'msw';
 import { server } from '@/mocks/server';
 
-const renderOrderEntry = () => {
-	render(
-		<Theme>
-			<OrderEntry />
-		</Theme>,
-	);
-};
+const renderOrderEntry = () => render(<OrderEntry />);
 
 describe('<OrderEntry />', () => {
 	it('Handles error for scoops and toppings routes', async () => {
