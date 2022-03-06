@@ -1,17 +1,13 @@
-import { render, screen } from '@testing-library/react';
-import Theme from '../../styles/theme';
+import { render, screen } from '@/test-utils/testing-library-utils';
 import { AlertBanner } from './AlertBanner';
 
 describe('<AlertBanner />', () => {
-	it('should render AlertBanner', () => {
-		render(
-			<Theme>
-				<AlertBanner />
-			</Theme>,
+	it('should have correct alert message', () => {
+		render(<AlertBanner />);
+
+		const alertBanner = screen.getByRole('alert');
+		expect(alertBanner).toHaveTextContent(
+			'An unexpected error ocurred. Please try again later.',
 		);
-
-		// const alertBanner = screen.getByText('AlertBanner');
-
-		// expect(alertBanner).toBeInTheDocument();
 	});
 });
