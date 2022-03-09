@@ -17,7 +17,7 @@ export const ScoopOption = ({
 	return (
 		<Container>
 			<h1>{name}</h1>
-			<img src={imagePath} alt={`${name} scoop`} />
+			<img src={`http://localhost:3030${imagePath}`} alt={`${name} scoop`} />
 			<Form.Group controlId={`${name}-count`} as={Row}>
 				<Form.Label>{name}</Form.Label>
 				<Form.Control type="number" defaultValue={0} onChange={handleChange} />

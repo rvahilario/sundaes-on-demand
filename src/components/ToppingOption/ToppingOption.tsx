@@ -11,7 +11,7 @@ export const ToppingOption = ({
 }: ToppingOptionProps) => {
 	return (
 		<Container>
-			<img src={imagePath} alt={`${name} topping`} />
+			<img src={`http://localhost:3030${imagePath}`} alt={`${name} topping`} />
 			<Form.Group controlId={`${name}-topping-checkbox`}>
 				<Form.Check
 					type="checkbox"
