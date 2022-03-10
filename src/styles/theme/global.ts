@@ -8,17 +8,7 @@ export default createGlobalStyle`
   }
 
   body {
-    background: ${(props) => props.theme.colors.background};
-    color: ${(props) => props.theme.colors.text};
+    color: ${(props) => props.theme.colors.text._300};
     font: 400 16px Roboto, sans-serif;
   }
-
-  a {
-    color: ${(props) => props.theme.colors.text};
-    text-decoration: none;
-  }
-
-	h1 {
-		color: ${(props) => props.theme.colors.primary};
-	}
 `;
