@@ -4,7 +4,7 @@ export const Container = styled.div`
 	display: flex;
 	flex-direction: column;
 	max-width: 280px;
-	margin: 1rem 0rem;
+	margin: 1rem 0.8rem;
 	padding: 0.8rem;
 	align-items: center;
 	border: 3px solid ${(props) => props.theme.colors.primary._100};
@@ -21,5 +21,10 @@ export const Container = styled.div`
 		margin: 0.5rem 0.5rem;
 		margin-left: 0;
 		justify-content: space-between;
+		text-align: center;
+
+		input {
+			margin-top: 4px;
+		}
 	}
 `;
