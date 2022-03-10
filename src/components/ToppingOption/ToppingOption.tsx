@@ -15,7 +15,7 @@ export const ToppingOption = ({
 			<Form.Group controlId={`${name}-topping-checkbox`}>
 				<Form.Check
 					type="checkbox"
-					label={name}
+					label={<h5>{name}</h5>}
 					onChange={(e) => {
 						updateItemCount(name, e.target.checked ? 1 : 0);
 					}}
