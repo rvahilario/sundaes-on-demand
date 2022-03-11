@@ -29,7 +29,6 @@ export const Options = ({ optionType }: OptionsProps) => {
 		return <AlertBanner />;
 	}
 
-	// TODO: replace null by topping option
 	const ItemComponent = (
 		optionType === 'scoops' ? ScoopOption : ToppingOption
 	) as React.ElementType;
@@ -40,8 +39,8 @@ export const Options = ({ optionType }: OptionsProps) => {
 			key={item.name}
 			name={item.name}
 			imagePath={item.imagePath}
-			updateItemCount={(itemName, newItemCount) =>
-				updateItemCount(itemName, newItemCount, optionType)
+			updateItemCount={(itemName: string, newItemCount: string) =>
+				updateItemCount(itemName, newItemCount, optionType: 'scoops' | 'toppings')
 			}
 		/>
 	));
