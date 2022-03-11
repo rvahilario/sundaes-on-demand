@@ -9,6 +9,7 @@ function formatCurrency(amount: number) {
 	}).format(amount);
 }
 
+// TODO write types to context
 const OrderDetails = createContext('');
 
 // create custom hook to check whether we're inside a provider
