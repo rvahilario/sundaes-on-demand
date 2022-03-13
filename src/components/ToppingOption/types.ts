@@ -1,5 +1,5 @@
 export interface ToppingOptionProps {
 	name: string;
 	imagePath: string;
-	updateItemCount: any;
+	updateItemCount: (itemName: string, newItemCount: number) => void;
 }
