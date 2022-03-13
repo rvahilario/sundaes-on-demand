@@ -13,7 +13,7 @@ describe('<ScoopOption />', () => {
 
 		const scoopOptionName = screen.getAllByText('Testing');
 		const scoopOptionImage = screen.getByAltText('Testing scoop');
-		expect(scoopOptionName).toHaveLength(2);
+		expect(scoopOptionName).toHaveLength(1);
 		expect(scoopOptionImage).toBeInTheDocument();
 	});
 });
