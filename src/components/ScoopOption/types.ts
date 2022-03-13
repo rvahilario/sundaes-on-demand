@@ -1,5 +1,5 @@
 export interface ScoopOptionProps {
 	name: string;
 	imagePath: string;
-	updateItemCount: any;
+	updateItemCount: (itemName: string, newItemCount: string) => void;
 }
