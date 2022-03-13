@@ -9,6 +9,7 @@ import { ToppingOption } from '@/components/ToppingOption';
 import { AlertBanner } from '@/components/AlertBanner';
 import { Row } from 'react-bootstrap';
 import { pricePerItem } from '@/constants';
+import { formatCurrency } from '@/utils';
 
 export const Options = ({ optionType }: OptionsProps) => {
 	const [items, setItems] = useState([]);
@@ -40,7 +41,7 @@ export const Options = ({ optionType }: OptionsProps) => {
 			name={item.name}
 			imagePath={item.imagePath}
 			updateItemCount={(itemName: string, newItemCount: string) =>
-				updateItemCount(itemName, newItemCount, optionType: 'scoops' | 'toppings')
+				updateItemCount(itemName, newItemCount, optionType)
 			}
 		/>
 	));
@@ -48,7 +49,7 @@ export const Options = ({ optionType }: OptionsProps) => {
 	return (
 		<Container>
 			<h2>{title}</h2>
-			<p>{pricePerItem[optionType]} each</p>
+			<p>{formatCurrency(pricePerItem[optionType])} each</p>
 			<p>
 				{title} total: {orderDetails.totals[optionType]}
 			</p>
