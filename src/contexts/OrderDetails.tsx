@@ -3,11 +3,11 @@ import { pricePerItem } from '@/constants';
 import { formatCurrency } from '@/utils';
 
 // TODO write types to context
-const OrderDetails = createContext('');
+const OrderDetails: any = createContext('');
 
 // create custom hook to check whether we're inside a provider
 export function useOrderDetails() {
-	const context = useContext(OrderDetails);
+	const context: any = useContext(OrderDetails);
 
 	if (!context) {
 		throw new Error(
