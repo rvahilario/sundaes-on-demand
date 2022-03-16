@@ -21,6 +21,11 @@ export const SummaryForm = ({}: SummaryFormProps) => {
 		</li>
 	));
 
+	const toppingsOrder: Array<string> = Array.from(orderDetails.toppings.keys());
+	const listToppingsOrder = toppingsOrder.map((key: string) => (
+		<li key={key}>{key}</li>
+	));
+
 	const popover = (
 		<Popover id="terms-popover">
 			<Popover.Body>No ice cream will actually be delivered</Popover.Body>
@@ -42,6 +47,10 @@ export const SummaryForm = ({}: SummaryFormProps) => {
 			<br />
 			<h2>Scoops: {orderDetails.totals.scoops}</h2>
 			<ul>{listScoopsOrder}</ul>
+			<br />
+			<h2>Toppings: {orderDetails.totals.toppings}</h2>
+			<ul>{listToppingsOrder}</ul>
+
 			<Form>
 				<Form.Group controlId="terms-an-conditions">
 					<Form.Check
