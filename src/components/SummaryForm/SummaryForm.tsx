@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useOrderDetails } from '@/contexts/OrderDetails';
 import { Container } from './styles';
 import { SummaryFormProps } from './types';
 
@@ -8,6 +9,7 @@ import Popover from 'react-bootstrap/Popover';
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 
 export const SummaryForm = ({}: SummaryFormProps) => {
+	const [orderDetails] = useOrderDetails();
 	const [tcChecked, setTcChecked] = useState(false);
 
 	const popover = (
@@ -27,6 +29,8 @@ export const SummaryForm = ({}: SummaryFormProps) => {
 
 	return (
 		<Container>
+			<h1>Order Summary</h1>
+			<h2>Scoops: {orderDetails.totals.scoops}</h2>
 			<Form>
 				<Form.Group controlId="terms-an-conditions">
 					<Form.Check
