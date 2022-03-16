@@ -12,6 +12,15 @@ export const SummaryForm = ({}: SummaryFormProps) => {
 	const [orderDetails] = useOrderDetails();
 	const [tcChecked, setTcChecked] = useState(false);
 
+	const scoopsOrder: Array<[string, number]> = Array.from(
+		orderDetails.scoops.entries(),
+	);
+	const listScoopsOrder = scoopsOrder.map(([key, value]: [string, number]) => (
+		<li key={key}>
+			{value} {key}
+		</li>
+	));
+
 	const popover = (
 		<Popover id="terms-popover">
 			<Popover.Body>No ice cream will actually be delivered</Popover.Body>
@@ -30,7 +39,9 @@ export const SummaryForm = ({}: SummaryFormProps) => {
 	return (
 		<Container>
 			<h1>Order Summary</h1>
+			<br />
 			<h2>Scoops: {orderDetails.totals.scoops}</h2>
+			<ul>{listScoopsOrder}</ul>
 			<Form>
 				<Form.Group controlId="terms-an-conditions">
 					<Form.Check
