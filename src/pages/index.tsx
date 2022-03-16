@@ -1,14 +1,20 @@
-import { OrderEntry } from '@/components/OrderEntry';
-import Head from 'next/head';
+/* eslint-disable @typescript-eslint/no-use-before-define */
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { OrderEntry } from '@/components/OrderEntry';
+import { SummaryForm } from '@/components/SummaryForm';
+import styled from 'styled-components';
 
 export default function Home() {
 	return (
-		<>
-			<Head>
-				<title>'TypeScript starter for Next.js'</title>
-			</Head>
+		<Container>
 			<OrderEntry />
-		</>
+			<SummaryForm />
+		</Container>
 	);
 }
+
+const Container = styled.div`
+	background: ${(props) => props.theme.colors.primary._500};
+	width: 100%;
+	min-height: 100vh;
+`;
